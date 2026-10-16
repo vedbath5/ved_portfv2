@@ -1,0 +1,8 @@
+Homepage solar-system assets
+
+Planet surface maps: NASA/JPL-Caltech Solar System Simulator texture maps.
+JPL texture map catalog: https://space.jpl.nasa.gov/tmaps/
+Mars, Jupiter, Saturn, Venus, Neptune and Pluto map images are used as round planet surfaces; textures include fictional/processed maps as documented by JPL.
+
+Rocket silhouette: SVG Repo, “Rocket SVG Vector” (https://www.svgrepo.com/svg/426781/rocket), CC0 license.
+
