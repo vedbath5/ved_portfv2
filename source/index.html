@@ -60,7 +60,7 @@ nav .me{color:var(--ink);font-size:15px;font-weight:800;letter-spacing:-.03em}
 .planet-link:hover,.planet-link:focus-visible{z-index:5;filter:brightness(1.18)}
 .planet-link:hover .planet-orbit,.planet-link:focus-visible .planet-orbit{scale:1.08;filter:drop-shadow(0 0 24px rgba(244,177,227,.48))}
 .planet-link:hover .planet-surface{filter:saturate(1.2) brightness(1.08)}
-.planet-name{position:absolute;z-index:3;top:calc(100% + 10px);left:50%;display:block;width:max-content;max-width:min(180px,30vw);padding:0;border:0;border-radius:0;background:transparent;color:rgba(244,241,236,.86);font:650 clamp(10px,.9vw,13px)/1.2 var(--display);letter-spacing:.015em;text-transform:none;white-space:normal;text-shadow:0 2px 12px rgba(0,0,0,.9);opacity:1;transform:translate(-50%,0);transition:opacity .2s ease,transform .2s ease;text-align:center;pointer-events:none}
+.planet-name{position:absolute;z-index:3;top:calc(100% + 10px);left:50%;display:block;width:max-content;max-width:min(180px,30vw);padding:0;border:0;border-radius:0;background:transparent;color:rgba(244,241,236,.86);font:650 clamp(10px,.9vw,13px)/1.2 var(--display);letter-spacing:.015em;text-transform:none;white-space:normal;text-shadow:0 1px 5px rgba(255,255,255,.9);opacity:1;transform:translate(-50%,0);transition:opacity .2s ease,transform .2s ease;text-align:center;pointer-events:none}
 .planet-link:hover .planet-name,.planet-link:focus-visible .planet-name{opacity:1;transform:translate(-50%,0)}
 .scroll-cue{display:none}
 @keyframes planet-drift{0%,100%{translate:0 0}50%{translate:0 -8px}}
@@ -145,6 +145,30 @@ figcaption{margin-top:8px;color:var(--muted);font:500 12px/1.45 var(--display)}
 .collage img{display:block;width:100%;height:auto;max-height:none;object-fit:contain;border:1px solid var(--line);border-radius:4px;background:#20262d}
 .collage .z.zoom{column-span:all}
 .big .intro{max-width:42em;font-size:20px;line-height:1.58}
+.photography-page{min-height:calc(100svh - 160px);padding-top:54px;padding-bottom:60px}
+.photo-heading{display:flex;justify-content:space-between;align-items:end;gap:24px;margin-bottom:28px}
+.photo-eyebrow{display:block;margin-bottom:13px;color:var(--accent);font:700 11px/1 var(--display);letter-spacing:.16em;text-transform:uppercase}
+.photography-page h1{margin:0;color:var(--ink);font:800 clamp(42px,7vw,76px)/1 var(--display);letter-spacing:-.065em}
+.photo-heading p{max-width:26em;margin:0;color:var(--muted);font-size:14px}
+.photo-albums{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px}
+.photo-album{display:block;min-width:0;padding:0;overflow:hidden;border:1px solid var(--line);border-radius:7px;background:var(--surface);color:var(--ink);text-align:left;cursor:pointer;transition:border-color .2s ease,transform .2s ease}
+.photo-album:hover{border-color:rgba(224,91,75,.72);transform:translateY(-3px)}
+.photo-album img{display:block;width:100%;aspect-ratio:1.52;object-fit:cover;background:#20262d}
+.photo-album-copy{display:flex;justify-content:space-between;align-items:center;gap:12px;padding:14px 15px}
+.photo-album-copy strong{font:650 15px/1.3 var(--display)}
+.photo-album-copy span{color:var(--muted);font:500 11px/1.3 var(--display);white-space:nowrap}
+.photo-viewer[hidden],.photo-albums[hidden]{display:none}
+.photo-viewer{margin-top:8px}
+.photo-viewer-top{display:flex;justify-content:space-between;align-items:center;margin:24px 0 14px}
+.photo-viewer-top h2{margin:0;color:var(--ink);font:750 clamp(26px,4vw,42px)/1.1 var(--display);letter-spacing:-.045em}
+.photo-back{padding:8px 0;border:0;background:none;color:var(--muted);font:600 12px/1 var(--display);cursor:pointer}
+.photo-back:hover{color:var(--ink)}
+.photo-stage{position:relative;display:grid;grid-template-columns:52px minmax(0,1fr) 52px;align-items:center;gap:14px}
+.photo-stage img{display:block;width:100%;height:min(68vh,720px);object-fit:contain;border-radius:3px;background:transparent}
+.photo-arrow{display:grid;place-items:center;width:48px;height:48px;border:1px solid var(--line);border-radius:50%;background:var(--surface);color:var(--ink);font:400 24px/1 var(--display);cursor:pointer;transition:background .18s ease,border-color .18s ease}
+.photo-arrow:hover{background:var(--accent-soft);border-color:var(--accent)}
+.photo-arrow:disabled{opacity:.28;cursor:default}
+.photo-count{margin:12px 66px 0;color:var(--muted);font:500 12px/1.4 var(--display);text-align:right}
 .g2{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:18px;align-items:start;margin-top:22px}
 .key-image{margin:24px 0 30px}
 .prototype-gallery{grid-template-columns:minmax(0,1fr)}
@@ -173,6 +197,7 @@ figcaption{margin-top:8px;color:var(--muted);font:500 12px/1.45 var(--display)}
   .feat{grid-template-columns:1fr}
   .gal{grid-template-columns:repeat(2,minmax(0,1fr))}
   .collage{columns:2}
+  .photo-albums{grid-template-columns:repeat(2,minmax(0,1fr))}
 }
 @media(max-width:520px){
   body{font-size:16px}
@@ -211,6 +236,14 @@ figcaption{margin-top:8px;color:var(--muted);font:500 12px/1.45 var(--display)}
   .gal{grid-template-columns:1fr 1fr;gap:10px}
   .nestquick-targets{grid-template-columns:repeat(2,minmax(0,1fr))}
   .collage{columns:2;column-gap:10px}
+  .photo-heading{align-items:start;flex-direction:column;gap:14px}
+  .photo-albums{gap:9px}
+  .photo-album-copy{align-items:flex-start;flex-direction:column;gap:4px;padding:11px}
+  .photo-album-copy strong{font-size:13px}
+  .photo-stage{grid-template-columns:36px minmax(0,1fr) 36px;gap:6px}
+  .photo-stage img{height:min(60vh,560px)}
+  .photo-arrow{width:34px;height:34px;font-size:19px}
+  .photo-count{margin-right:42px}
   .specs{gap:10px}
   .skills li{grid-template-columns:minmax(0,1fr);gap:3px}
 }
@@ -220,7 +253,7 @@ figcaption{margin-top:8px;color:var(--muted);font:500 12px/1.45 var(--display)}
 <body>
 
 <div class="wrap">
-<nav><a class="me" href="#top">Ved Bathina</a><span><a href="#about">About</a><a href="#projects">Projects</a><a href="#other-works">CAD and Sketchwork</a><a href="#skills">Skills</a><a href="#contact">Contact</a></span></nav>
+<nav><a class="me" href="#top">Ved Bathina</a><span><a href="#about">About</a><a href="#projects">Projects</a><a href="#other-works">CAD and Sketchwork</a><a href="#/photography">Photography</a><a href="assets/ved-bathina-resume.pdf" target="_blank" rel="noopener noreferrer">Resume</a><a href="#skills">Skills</a><a href="#contact">Contact</a></span></nav>
 
 <div class="view" id="v-home"><header id="top" class="cover">
 <div class="cover-copy"><span class="cover-kicker">MECHANICAL ENGINEERING · PRODUCT DESIGN</span><h1>Ved Bathina</h1><p class="lede">Mechanical Engineering, Georgia Tech, Class of 2028</p></div>
@@ -248,6 +281,11 @@ figcaption{margin-top:8px;color:var(--muted);font:500 12px/1.45 var(--display)}
 </div></section>
 <section id="skills"><h2>Skills</h2><ul class="skills"><li>Computer-Aided Design (CAD) <span>Autodesk Fusion 360, SolidWorks, Blender, OnShape, CATIA, NX</span></li><li>3D Printing and Prototyping (Resin and PLA) <span>Bambu Studio, Bambu Lab, Formlabs, Additive and Subtractive manufacturing</span></li><li>Graphic Design <span>Adobe Photoshop, Procreate, Adobe Camera Raw, Autodesk Sketchbook</span></li><li>Metal and Wood Fabrication <span>Mill, Lathe, Waterjet, Laser Cutting, Woodshop machinery, CNC press brake</span></li><li>Electronics/Mechatronics <span>Soldering, circuit assembly, Arduino IDE, Pneumatics, I2C/SPI communication, ODrive</span></li><li>Programming &amp; Data Science/Machine Learning <span>MatLab, Python, Unity, C++, RStudio, Microsoft Office Suite, Tkinter</span></li></ul></section>
 </div>
+<div class="view" id="v-photography" hidden><section class="photography-page">
+<div class="photo-heading"><div><h1>Photography</h1></div><p>Collection of photographs taken over the years.</p></div>
+<div class="photo-albums" id="photo-albums"></div>
+<div class="photo-viewer" id="photo-viewer" hidden><button class="photo-back" id="photo-back" type="button">← All albums</button><div class="photo-viewer-top"><h2 id="photo-title"></h2><span class="photo-eyebrow" id="photo-location"></span></div><div class="photo-stage"><button class="photo-arrow" id="photo-prev" type="button" aria-label="Previous image">←</button><img id="photo-slide" alt=""><button class="photo-arrow" id="photo-next" type="button" aria-label="Next image">→</button></div><div class="photo-count" id="photo-count" aria-live="polite"></div></div>
+</section></div>
 <div class="view" id="v-phone-stand" hidden><a class="back" href="#projects">Back to projects</a><section id="featured"><article class="feat">
 <div>
 <h3>Ergonomic Phone Stand</h3>
@@ -317,6 +355,19 @@ figcaption{margin-top:8px;color:var(--muted);font:500 12px/1.45 var(--display)}
 <script>
 document.querySelectorAll('.z img').forEach(function(i){i.addEventListener('click',function(){i.parentNode.classList.toggle('zoom')})});
 document.querySelectorAll('img[data-from]').forEach(function(i){i.src=document.querySelector(i.dataset.from).src});
+var photoAlbums=[
+  {name:'Georgia Tech',slug:'georgia-tech',location:'GEORGIA TECH',cover:'tech-tower1-copy.jpg',images:['barnowl-2.jpg','crossland-view2-1.jpg','culc4skyline-1.jpg','culc4skyline-3.jpg','culc4skyline-6.jpg','culc4skyline-7.jpg','leaves-and-snow.jpg','red-leaves.jpg','tech-tower1-copy.jpg','tech-tower3.jpg','tech-vs-mercer-2.jpg','tech-vs-mercer-5.jpg','tree-roots-in-snow.jpg','westin-in-between-tree.jpg']},
+  {name:'Southern California',slug:'southern-california',location:'SOUTHERN CALIFORNIA',cover:'santa-monica-10.jpg',images:['angeles-national-forest-1.jpg','big-bear-lake-12.jpg','big-bear-lake-9.jpg','finalweekend-4.jpg','hermosa-beach-6.jpg','hermosa-beach-7.jpg','in-n-out.jpg','joshua-tree-1.jpg','joshua-tree-3.jpg','joshua-tree-5.jpg','long-beach-3.jpg','santa-monica-10.jpg','santa-monica-7.jpg','santa-monica-8.jpg','the-getty-1.jpg','torrey-pines-15.jpg','torrey-pines-7.jpg','torrey-pines-8.jpg']},
+  {name:'San Francisco',slug:'san-francisco',location:'SAN FRANCISCO',cover:'marin-ggb-sunrise-1.jpg',images:['angel-isle-11.jpg','angel-isle-7.jpg','bay-bridge-1.jpg','chinatown-3.jpg','chinatown-7.jpg','ferry-building-1.jpg','ferry-building.jpg','fireworks-5.jpg','ggb-silhouette-1.jpg','marin-ggb-sunrise-1.jpg','martha-point-10.jpg','martha-point-15.jpg','martha-point-16.jpg','martha-point.jpg','sc-sailboat.jpg','sfo-fort.jpg','sfo-skyline-1.jpg','the-view.jpg']},
+  {name:'Yosemite',slug:'yosemite',location:'YOSEMITE',cover:'yosemite50.jpg',images:['yosemite22-1.jpg','yosemite23.jpg','yosemite3.jpg','yosemite31.jpg','yosemite38.jpg','yosemite41.jpg','yosemite42.jpg','yosemite46-1.jpg','yosemite49.jpg','yosemite50.jpg']},{name:'Great Smoky Mountains',slug:'smoky-mountains',location:'GREAT SMOKY MOUNTAINS',cover:'smoky-view-10.jpg',images:['kingsnake-4.jpg','lone-tree-afternoon.jpg','moon-between-branches.jpg','orion-2.jpg','smoky-view-10.jpg','smoky-view-12.jpg','smoky-view-3.jpg','squirrel.jpg','star-trail-large.jpg','star-trail.jpg','starry.jpg','startrails2.jpg','the-moon.jpg','woodpeck.jpg']},{name:'New York City',slug:'new-york-city',location:'NEW YORK CITY',cover:'dumbo-1.jpg',images:['dumbo-1.jpg','dumbo-3.jpg','edge-view-15.jpg','edge-view-16.jpg','edge-view-18.jpg','edge-view-2.jpg','edge-view-4.jpg','edge-view.jpg','helicopter.jpg','manhattan-bridge-2.jpg','oculus.jpg','vessel.jpg']},{name:'Wales',slug:'wales',location:'WALES',cover:'sheep-lit-up-1.jpg',images:['lake-idwal.jpg','llanberis-1.jpg','mt-snowdon-1.jpg','potentially-the-final-picture.jpg','ram-3.jpg','ram.jpg','rhyd-ridge.jpg','rocks.jpg','sheep-lit-up-1.jpg','sheep-posing-2.jpg','sheep-with-view.jpg','sheep.jpg','that-first-lake.jpg','view-from-top-11.jpg','view-from-top-5.jpg','waterfall-1.jpg']},{name:'England',slug:'england',location:'YORKSHIRE DALES',cover:'cabin-1.jpg',images:['buckingham-palace-3.jpg','cabin-1.jpg','hellish-sun-1.jpg','hills-and-cabin-2.jpg','liverpool-street-5.jpg','london-street-1.jpg','london-street-5.jpg','metro-sign.jpg','notting-hill-1.jpg','notting-hill-5.jpg','pole-thing-2.jpg','speedboat-in-god-rays.jpg','speedboat-riding-into-sunset.jpg','tower-bridge-6.jpg','waves.jpg','windmills-and-ship.jpg']},{name:'Paris',slug:'paris',location:'PARIS',cover:'eiffel-tower-11.jpg',images:['arc-de-triomphe-1.jpg','arc-de-triomphe-5.jpg','eiffel-tower-11.jpg','eiffel-tower-12.jpg','eiffel-tower-13.jpg','eiffel-tower-14.jpg','eiffel-tower-18.jpg','eiffel-tower-22.jpg','eiffel-tower-27.jpg','eiffel-tower-3.jpg','food-street-1.jpg','louvre-10.jpg','louvre-12.jpg','louvre-3.jpg','luxembourg-park-12.jpg','paris-main-downtown.jpg','sacre-cour-6.jpg','seine-cruise-13.jpg','seine-cruise-14.jpg','seine-cruise-15.jpg','seine-cruise-18.jpg','seine-cruise-24.jpg','seine-cruise-4.jpg','st-chapelle-8.jpg']},{name:'Madrid',slug:'madrid',location:'MADRID',cover:'palace-of-madrid-5.jpg',images:['central-madrid-4.jpg','central-madrid-9.jpg','egyptian-temple-place-5.jpg','el-corte-ingles-3.jpg','lightning-over-puerta-del-sol.jpg','metro-1.jpg','palace-of-madrid-2.jpg','palace-of-madrid-5.jpg','palace-of-madrid-7.jpg','plaza-mayor-1.jpg','same-pillar-diff-angle.jpg','san-lorenzo-el-escorial.jpg']},{name:'Barcelona',slug:'barcelona',location:'BARCELONA',cover:'montjuic-10.jpg',images:['casa-pedrera-4.jpg','ciutadella-park-11.jpg','ciutadella-park-14.jpg','ciutadella-park-2.jpg','ciutadella-park-20.jpg','ciutadella-park-6.jpg','gothic-quarter-13.jpg','gothic-quarter-3.jpg','montjuic-1.jpg','montjuic-10.jpg','montjuic-14.jpg','montjuic-18.jpg','montjuic-20.jpg','montjuic-3.jpg','montjuic-33.jpg','montjuic-9.jpg','palau-de-musica-5.jpg','palm-tree-plaza-2.jpg','park-guell-8.jpg','sagrada-familia-5.jpg','street-with-the-view-1.jpg']},{name:'Granada',slug:'granada',location:'GRANADA',cover:'alhambra-snowcap-2.jpg',images:['alhambra-snowcap-2.jpg','downtown-granada-6.jpg','mirador-san-nicolas-1.jpg','mirador-san-nicolas-2.jpg','mirador-san-nicolas-4.jpg','mosque-cath-10.jpg','mosque-cath-2.jpg','mosque-cath-6.jpg','mosque-cath-9.jpg','night-viewpoint-2.jpg','night-viewpoint-6.jpg','niguelas-3.jpg','sierra-nevada-blue-lake-2.jpg','sierra-nevada-blue-lake-4.jpg','sierra-nevada-river-5.jpg','sierra-nevada-town-view-7.jpg']},{name:'Seville',slug:'seville',location:'SEVILLE',cover:'alcazar-peacock-8.jpg',images:['alcazar-back-garden.jpg','alcazar-main-plaza-2.jpg','alcazar-peacock-1.jpg','alcazar-peacock-2.jpg','alcazar-peacock-3.jpg','alcazar-peacock-4.jpg','alcazar-peacock-6.jpg','alcazar-peacock-7.jpg','alcazar-peacock-8.jpg','alcazar-second-level-5.jpg','cathedral-view.jpg','dscn4699.jpg','horse-statue.jpg','metropol-2.jpg','plaza-de-espana-10.jpg','plaza-de-espana-14.jpg','plaza-de-espana-22.jpg','seville-street-4.jpg']},{name:'Lisbon',slug:'lisbon',location:'LISBON',cover:'tram.jpg',images:['downtown-lisbon-3.jpg','lisbon-street-5-copy.jpg','mirador-1.jpg','mirador-2.jpg','mirador-3.jpg','mirador-5.jpg','mirador-6.jpg','monastery-22.jpg','monastery-23.jpg','monastery-24.jpg','tram.jpg']}
+];
+var albumRoot='assets/photography/';
+var albumGrid=document.getElementById('photo-albums'),photoViewer=document.getElementById('photo-viewer'),activeAlbum=null,activePhoto=0;
+photoAlbums.forEach(function(album){var card=document.createElement('button');card.type='button';card.className='photo-album';card.setAttribute('aria-label','Open '+album.name+' album');var cover=album.placeholder?albumRoot+'placeholders/'+album.slug+'.svg':albumRoot+album.slug+'/'+(album.cover||album.images[0]);card.innerHTML='<img src="'+cover+'" alt=""><span class="photo-album-copy"><strong>'+album.name+'</strong><span>'+(album.placeholder?'Album coming soon':album.images.length+' photographs')+'</span></span>';card.addEventListener('click',function(){activeAlbum=album;activePhoto=0;albumGrid.hidden=true;photoViewer.hidden=false;document.getElementById('photo-title').textContent=album.name;document.getElementById('photo-location').textContent=album.placeholder?'COMING SOON':album.location;showPhoto()});albumGrid.appendChild(card)});
+function showPhoto(){var img=document.getElementById('photo-slide'),count=document.getElementById('photo-count'),prev=document.getElementById('photo-prev'),next=document.getElementById('photo-next');if(activeAlbum.placeholder){img.src=albumRoot+'placeholders/'+activeAlbum.slug+'.svg';img.alt=activeAlbum.name+' album placeholder';count.textContent='ALBUM COMING SOON';prev.disabled=true;next.disabled=true;return}prev.disabled=false;next.disabled=false;img.src=albumRoot+activeAlbum.slug+'/'+activeAlbum.images[activePhoto];img.alt=activeAlbum.name+' photograph '+(activePhoto+1);count.textContent=String(activePhoto+1).padStart(2,'0')+' / '+String(activeAlbum.images.length).padStart(2,'0')}
+function stepPhoto(n){if(!activeAlbum||activeAlbum.placeholder)return;activePhoto=(activePhoto+n+activeAlbum.images.length)%activeAlbum.images.length;showPhoto()}
+document.getElementById('photo-prev').addEventListener('click',function(){stepPhoto(-1)});document.getElementById('photo-next').addEventListener('click',function(){stepPhoto(1)});document.getElementById('photo-back').addEventListener('click',function(){photoViewer.hidden=true;albumGrid.hidden=false;activeAlbum=null});
+document.addEventListener('keydown',function(e){if(!photoViewer||photoViewer.hidden)return;if(e.key==='ArrowRight')stepPhoto(1);if(e.key==='ArrowLeft')stepPhoto(-1);if(e.key==='Escape')document.getElementById('photo-back').click()});
 var views=document.querySelectorAll('.view');
 function route(){var m=location.hash.match(/^#\/(.+)/),id=m?'v-'+m[1]:'v-home';
 if(!document.getElementById(id))id='v-home';
@@ -325,10 +376,13 @@ var t=!m&&location.hash.length>1&&document.querySelector(location.hash);
 if(t)t.scrollIntoView();else window.scrollTo(0,0)}
 window.addEventListener('hashchange',route);route();
 (function(){
-  var rocket=document.getElementById('cursor-rocket');
-  if(!rocket||matchMedia('(pointer: coarse)').matches||matchMedia('(prefers-reduced-motion: reduce)').matches)return;
-  var x=-100,y=-100,tx=-100,ty=-100,angle=0,raf=0;
-  addEventListener('pointermove',function(e){tx=e.clientX;ty=e.clientY;rocket.classList.add('visible');var cover=document.getElementById('top'),nav=cover&&cover.querySelector('.planet-nav');if(nav){var b=cover.getBoundingClientRect(),px=(e.clientX-b.left)/b.width-.5,py=(e.clientY-b.top)/b.height-.5;nav.querySelectorAll('.planet-link').forEach(function(p,i){var d=(i+1)*.4;p.style.setProperty('--parallax-x',(-px*d*12).toFixed(1)+'px');p.style.setProperty('--parallax-y',(-py*d*10).toFixed(1)+'px')})}if(!raf)raf=requestAnimationFrame(move)},{passive:true});
+  var rocket=document.getElementById('cursor-rocket'),cover=document.getElementById('top'),nav=cover&&cover.querySelector('.planet-nav');
+  if(!rocket||!nav||matchMedia('(pointer: coarse)').matches||matchMedia('(prefers-reduced-motion: reduce)').matches)return;
+  var x=-100,y=-100,tx=-100,ty=-100,angle=0,raf=0,lastX=-100,lastY=-100;
+  function inPlanetsArea(px,py){var b=nav.getBoundingClientRect();return b.width>0&&b.height>0&&px>=b.left&&px<=b.right&&py>=b.top&&py<=b.bottom}
+  function updateVisibility(){if(inPlanetsArea(lastX,lastY))rocket.classList.add('visible');else{rocket.classList.remove('visible');rocket.classList.remove('moving')}}
+  addEventListener('pointermove',function(e){lastX=e.clientX;lastY=e.clientY;if(!inPlanetsArea(lastX,lastY)){updateVisibility();return}tx=e.clientX;ty=e.clientY;updateVisibility();var b=cover.getBoundingClientRect(),px=(e.clientX-b.left)/b.width-.5,py=(e.clientY-b.top)/b.height-.5;nav.querySelectorAll('.planet-link').forEach(function(p,i){var d=(i+1)*.4;p.style.setProperty('--parallax-x',(-px*d*12).toFixed(1)+'px');p.style.setProperty('--parallax-y',(-py*d*10).toFixed(1)+'px')});if(!raf)raf=requestAnimationFrame(move)},{passive:true});
+  addEventListener('scroll',updateVisibility,{passive:true});
   function move(){raf=0;var dx=tx-x,dy=ty-y;x+=dx*.16;y+=dy*.16;if(Math.hypot(dx,dy)>1)angle=Math.atan2(dy,dx)*180/Math.PI+90;rocket.style.transform='translate3d('+x+'px,'+y+'px,0) translate(-50%,-50%) rotate('+angle+'deg)';if(Math.hypot(tx-x,ty-y)>.35){rocket.classList.add('moving');raf=requestAnimationFrame(move)}else{rocket.classList.remove('moving')}}
 })();
 </script>
